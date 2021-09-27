@@ -23,11 +23,11 @@ Customer.init({
     timestamps: true
 });
 
-Customer.associate = function (models: any){
-    Customer.hasMany(models.Lending, {
-        foreignKey: "customerId"
-      });
-}
+
+// Customer.belongsToMany(Lending, { through: "customer_lending" });
+// Customer.associate = function (models: any){
+//     Customer.belongsToMany(models.Lending, { through: "customer_lending" });
+// }
 
 
 

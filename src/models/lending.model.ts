@@ -44,25 +44,16 @@ Lending.init({
     typePayment:{
         type: DataTypes.STRING,
         allowNull: false
-    },
-    customerId:{
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'Customers',
-            key: 'id'
-        }
     }
-
 },{
     sequelize,
     modelName: "Lending",
     timestamps: true,
 });
 
-Customer.associate = function (models: any){
-    Lending.belongsTo(models.Customer, {
-        foreignKey: "customerId"
-      });
-}
+// Lending.belongsToMany(Customer, { through: "customer_lending" });
+// Lending.associate = function (models: any){
+//     Lending.belongsToMany(models.Customer, { through: "customer_lending" });
+// }
 
 module.exports = Lending;

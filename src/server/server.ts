@@ -1,9 +1,11 @@
 import express = require('express');
 import path = require('path');
 import cors = require('cors');
+
 const sequelize = require('../util/database');
 const Customer = require('../models/customer.model');
 const Lending = require('../models/lending.model');
+const asociations = require('../asociations/asociations');
 
 // exportar clase para ser usada en otros archivos
 export default class Server {
@@ -53,27 +55,27 @@ export default class Server {
     private configSequelize(){
 
         // Rutas
-        this.app.get('/', function (req, res) {
+        // this.app.get('/', function (req, res) {
 
-            // Customer.create({
-            //     name: "Pepe",
-            //     birthday: new Date(1999, 4, 6)
-            // }).then((customer: any) => {
-            //     res.json(customer);
-            // });
+        //     // Customer.create({
+        //     //     name: "Pepe",
+        //     //     birthday: new Date(1999, 4, 6)
+        //     // }).then((customer: any) => {
+        //     //     res.json(customer);
+        //     // });
 
-            // Lending.create({
-            //     name: "Pepe",
-            //     birthday: new Date(1999, 4, 6)
-            // }).then((customer: any) => {
-            //     res.json(customer);
-            // });
+        //     // Lending.create({
+        //     //     name: "Pepe",
+        //     //     birthday: new Date(1999, 4, 6)
+        //     // }).then((customer: any) => {
+        //     //     res.json(customer);
+        //     // });
 
-            // User.findAll().then(users => {
-            //     res.json(users);
-            // });
+        //     // User.findAll().then(users => {
+        //     //     res.json(users);
+        //     // });
 
-        });
+        // });
 
         // Conectase a la base de datos
         // Force true: DROP TABLES

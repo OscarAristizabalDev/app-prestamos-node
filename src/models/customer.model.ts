@@ -2,8 +2,6 @@ export {};
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../util/database");
 
-const Lending = require("../models/lending.model");
-
 class Customer extends Model {}
 
 Customer.init({
@@ -15,6 +13,18 @@ Customer.init({
     },
     name:{
         type: DataTypes.STRING,
+        allowNull: false
+    },
+    lastName:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    telefonoMovil:{
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    telefonoFijo:{
+        type: DataTypes.INTEGER,
         allowNull: false
     },
 },{

@@ -3,9 +3,9 @@ export {};
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../util/database");
 
-class Quota extends Model {}
+class Fee extends Model {}
 
-Quota.init({
+Fee.init({
     id:{
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -38,8 +38,8 @@ Quota.init({
     }
 },{
     sequelize,
-    modelName: "Quota",
+    modelName: "Fee",
     timestamps: true
 });
 
-module.exports = Quota;
+module.exports = Fee;

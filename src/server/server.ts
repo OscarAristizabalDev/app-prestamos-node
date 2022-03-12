@@ -3,9 +3,6 @@ import path = require('path');
 import cors = require('cors');
 
 const sequelize = require('../util/database');
-const Customer = require('../models/customer.model');
-const Lending = require('../models/lending.model');
-const asociations = require('../asociations/asociations');
 
 // exportar clase para ser usada en otros archivos
 export default class Server {
@@ -18,6 +15,7 @@ export default class Server {
         this.app = express();
         this.configMiddleware();
         this.configCors();
+        // this.ConfigRoutes();
     }
 
     // Metodo init para instanciar la clase server, siempre usando la misma instancia
@@ -51,38 +49,24 @@ export default class Server {
         this.app.use(cors());
     }
 
+    // private ConfigRoutes(){
+    //     this.app.use(require('../controller/lending.controller'));
+    //     //this.app.use(require('../controller/customer.controller'));
+    // }
 
-    private configSequelize(){
 
-        // Rutas
-        // this.app.get('/', function (req, res) {
-
-        //     // Customer.create({
-        //     //     name: "Pepe",
-        //     //     birthday: new Date(1999, 4, 6)
-        //     // }).then((customer: any) => {
-        //     //     res.json(customer);
-        //     // });
-
-        //     // Lending.create({
-        //     //     name: "Pepe",
-        //     //     birthday: new Date(1999, 4, 6)
-        //     // }).then((customer: any) => {
-        //     //     res.json(customer);
-        //     // });
-
-        //     // User.findAll().then(users => {
-        //     //     res.json(users);
-        //     // });
-
-        // });
+    private async configSequelize(){
 
         // Conectase a la base de datos
         // Force true: DROP TABLES
-        sequelize.sync({ force: true }).then(() => {
+        await sequelize.query('SET FOREIGN_KEY_CHECKS = 0');
+
+        await sequelize.sync({ force: false }).then(() => {
             console.log("Nos hemos conectado a la base de datos");
         }).catch((error: any) => {
             console.log('Se ha producido un error', error);
-        })
+        });
+
+        await sequelize.query('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

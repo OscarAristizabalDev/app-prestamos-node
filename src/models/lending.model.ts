@@ -2,8 +2,6 @@ export {};
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require("../util/database");
 
-const Customer = require("../models/customer.model");
-
 class Lending extends Model {}
 
 Lending.init({
@@ -42,6 +40,10 @@ Lending.init({
         allowNull: false
     },
     typePayment:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    typeFee:{
         type: DataTypes.STRING,
         allowNull: false
     }

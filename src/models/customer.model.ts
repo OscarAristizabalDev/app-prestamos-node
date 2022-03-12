@@ -1,6 +1,7 @@
 export {};
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../util/database");
+//const db = require("../models");
 
 class Customer extends Model {}
 

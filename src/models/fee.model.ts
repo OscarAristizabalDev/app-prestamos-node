@@ -35,6 +35,10 @@ Fee.init({
     balance:{
         type: DataTypes.DOUBLE,
         allowNull: false
+    },
+    lendingId:{
+        type: DataTypes.INTEGER,
+        allowNull: false
     }
 },{
     sequelize,

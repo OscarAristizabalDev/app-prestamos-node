@@ -19,3 +19,5 @@ export const createCustomer = async (req: Request, res: Response) => {
         console.log(e);
     }
 };
+
+//module.exports = app;

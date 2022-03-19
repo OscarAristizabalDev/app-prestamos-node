@@ -39,10 +39,12 @@ Lending.init({
         type: DataTypes.STRING,
         allowNull: false
     },
+    // Mensual, quincenal, semanal, diario
     typePayment:{
         type: DataTypes.STRING,
         allowNull: false
     },
+    // Cuota fija, cuota variable
     typeFee:{
         type: DataTypes.STRING,
         allowNull: false

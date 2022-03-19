@@ -1,6 +1,6 @@
 export { };
 import express, { Request, Response } from "express";
-import { createCustomer } from './customer.controller';
+
 const LendingService = require("../services/lending.service");
 const app = express();
 
@@ -19,10 +19,10 @@ export const createLending = async (req: Request, res: Response) => {
 
 
     } catch (e) {
-
+        console.log(e);
     }
 
 };
 
 
-module.exports = app;
+//module.exports = app;
